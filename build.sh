@@ -1,0 +1,1 @@
+g++ -I include main.cpp cpp/*.cpp -o main -std=c++11
