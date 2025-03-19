@@ -9,6 +9,12 @@ using namespace std;
 
 class SortBase {
 protected:
+    void swap_num(int& a, int& b) {
+        int tem = a;
+        a = b;
+        b = tem;
+    }
+    
     bool less(int a, int b) {
         comparisons++;
         return a < b;
