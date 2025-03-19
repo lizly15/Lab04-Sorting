@@ -2,7 +2,6 @@
 #define SORT_BASE_H
 
 #include <iostream> 
-#include <algorithm>
 #include <chrono>
 
 using namespace std;

@@ -26,10 +26,10 @@ const string SORT_ALGOS[10][2] = {
     {"shell-sort", "Shell Sort"}
 };
 const string INPUT_ORDER[4][2] = {
-    {"-rand", "Randomized data"},
-    {"-nsorted", "Nearly sorted data"},
-    {"-sorted", "Sorted data"},
-    {"-rev", " Reverse sorted data"}
+    {"-rand", "Randomized"},
+    {"-sorted", "Sorted"},
+    {"-rev", " Reverse sorted"},
+    {"-nsorted", "Nearly sorted"}
 };
 const string OUTPUT_PARAM[3][2] = {
     {"-time", "Running time"},

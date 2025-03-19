@@ -1,23 +1,25 @@
 #include "../include/utils.h"
 
 void show_algo(SortBase* sort_algo, bool show_runtime, bool show_comparisons) {
-    cout << endl << DASH_LINE << endl;
+    cout << DASH_LINE << endl;
     if(show_runtime) {
-        cout << "Running time: " << sort_algo->runtime << "ms" << endl;
+        cout << "Running time (if required): " << sort_algo->runtime << "ms" << endl;
     }
     if(show_comparisons) {
-        cout << "Comparisons: " << sort_algo->comparisons << endl;
+        cout << "Comparisons (if required): " << sort_algo->comparisons << endl;
     }
+    cout << endl;
 }
 
 void show_compare(SortBase* sort_algo_1, SortBase* sort_algo_2, bool show_runtime, bool show_comparisons) {
-    cout << endl << DASH_LINE << endl;
+    cout << DASH_LINE << endl;
     if(show_runtime) {
-        cout << "Running time: " << sort_algo_1->runtime << "ms | " << sort_algo_2->runtime << "ms" << endl;
+        cout << "Running time (if required): " << sort_algo_1->runtime << "ms | " << sort_algo_2->runtime << "ms" << endl;
     }
     if(show_comparisons) {
-        cout << "Comparisons: " << sort_algo_1->comparisons << " | " << sort_algo_2->runtime << endl;
+        cout << "Comparisons (if required): " << sort_algo_1->comparisons << " | " << sort_algo_2->comparisons << endl;
     }
+    cout << endl;
 }
 
 bool check_and_parse(
@@ -83,12 +85,12 @@ bool parse_args(int argc, char* argv[], Params& params) {
 
         cur_argc++;
         if(!check_and_parse(argc, argv, cur_argc, params.input_order, "input order", INPUT_ORDER, 4, false)) {
-            params.input_order = "all";
+            params.input_order = "-all";
             cur_argc--;
         }
     }
     catch (const invalid_argument& e) {
-        params.input_order = "file";
+        params.input_order = "-file";
         params.file_name = string(argv[cur_argc]);
     }
     catch (const out_of_range& e) {
