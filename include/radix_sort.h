@@ -4,6 +4,8 @@
 #include "sort_base.h"
 
 class RadixSort : public SortBase {
+private:
+    void RadixSort::counting_sort_by_digit(int arr[], int n, int exp);
 public:
     void sort(int arr[], int n) override;
 };

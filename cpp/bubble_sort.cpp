@@ -3,8 +3,8 @@
 void BubbleSort::sort(int arr[], int n) {
     auto start = std::chrono::high_resolution_clock::now();
 
-    for(int i = 0; i < n - 1; ++i) {
-        for(int j = 0; j < n - i - 1; ++j) {
+    for(int i = 0; less(i, n - 1); ++i) {
+        for(int j = 0; less(j, n - i - 1); ++j) {
             if(greater(arr[j], arr[j + 1])) {
                 swap_num(arr[j], arr[j + 1]);
             }

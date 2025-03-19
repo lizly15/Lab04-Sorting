@@ -3,13 +3,13 @@
 void MergeSort::merge(int arr[], int l, int m, int r) {
     int left_len = m - l + 1;
     int* left_arr = new int[left_len];
-    for(int i = 0; less(i, left_len); i++) {
+    for(int i = 0; less(i, left_len); ++i) {
         left_arr[i] = arr[l + i];
     }
 
     int right_len = r - m;
     int* right_arr = new int[right_len];
-    for(int i = 0; less(i, right_len); i++) {
+    for(int i = 0; less(i, right_len); ++i) {
         right_arr[i] = arr[m + 1 + i];
     }
 
@@ -29,6 +29,9 @@ void MergeSort::merge(int arr[], int l, int m, int r) {
     while(less(right_cur, right_len)) {
         arr[l++] = right_arr[right_cur++];
     }
+
+    delete [] left_arr;
+    delete [] right_arr;
 }
 
 void MergeSort::merge_sort(int arr[], int l, int r) {

@@ -23,11 +23,11 @@ void HeapSort::heapify(int arr[], int n, int cur) {
 void HeapSort::sort(int arr[], int n) {
     auto start = std::chrono::high_resolution_clock::now();
 
-    for(int i = n / 2 - 1; greater_equal(i, 0); i--) {
+    for(int i = n / 2 - 1; greater_equal(i, 0); --i) {
         heapify(arr, n, i);
     }
 
-    for(int i = n - 1; greater(i, 0); i--) {
+    for(int i = n - 1; greater(i, 0); --i) {
         swap_num(arr[0], arr[i]);
         heapify(arr, i, 0);
     }

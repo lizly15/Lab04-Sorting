@@ -1,12 +1,10 @@
 #include "../include/selection_sort.h"
 
-#include <chrono>
-
 void SelectionSort::sort(int arr[], int n) {
     auto start = std::chrono::high_resolution_clock::now();
-    for(int i = 0; less(i, n - 1); i++) {
+    for(int i = 0; less(i, n - 1); ++i) {
         int min_index = i;
-        for(int j = i + 1; less(j, n); j++) {
+        for(int j = i + 1; less(j, n); ++j) {
             if(less(arr[j], arr[min_index])) {
                 min_index = j;
             }

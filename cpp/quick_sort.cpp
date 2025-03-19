@@ -5,9 +5,9 @@ int QuickSort::partition(int arr[], int low, int high) {
 
     int i = low - 1;
 
-    for(int j = low; less(j, high); j++) {
+    for(int j = low; less(j, high); ++j) {
         if(less_equal(arr[j], pivot)) {
-            i++;
+            ++i;
             swap_num(arr[i], arr[j]);
         }
     }
