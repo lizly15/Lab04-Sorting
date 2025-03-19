@@ -3,36 +3,39 @@
 void MergeSort::merge(int arr[], int l, int m, int r) {
     int left_len = m - l + 1;
     int* left_arr = new int[left_len];
-    for (int i = 0; less(i, left_len); i++) {
+    for(int i = 0; less(i, left_len); ++i) {
         left_arr[i] = arr[l + i];
     }
 
     int right_len = r - m;
     int* right_arr = new int[right_len];
-    for (int i = 0; less(i, right_len); i++) {
+    for(int i = 0; less(i, right_len); ++i) {
         right_arr[i] = arr[m + 1 + i];
     }
 
     int left_cur = 0, right_cur = 0;
     while(less(left_cur, left_len) && less(right_cur, right_len)) {
-        if (less_equal(left_arr[left_cur], right_arr[right_cur])) {
+        if(less_equal(left_arr[left_cur], right_arr[right_cur])) {
             arr[l++] = left_arr[left_cur++];
         } else {
             arr[l++] = right_arr[right_cur++];
         }
     }
 
-    while (less(left_cur, left_len)) {
+    while(less(left_cur, left_len)) {
         arr[l++] = left_arr[left_cur++];
     }
 
-    while (less(right_cur, right_len)) {
+    while(less(right_cur, right_len)) {
         arr[l++] = right_arr[right_cur++];
     }
+
+    delete [] left_arr;
+    delete [] right_arr;
 }
 
 void MergeSort::merge_sort(int arr[], int l, int r) {
-    if (greater_equal(l, r)) {
+    if(greater_equal(l, r)) {
         return;
     }
     int m = (l + r) / 2;

@@ -1,25 +1,20 @@
 #include "../include/heap_sort.h"
 
-void heapify(int arr[], int n, int i) {
-    int largest = i; // Initialize largest as root
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
+void HeapSort::heapify(int arr[], int n, int cur) {
+    int largest = cur;
+    int left = 2 * cur + 1;
+    int right = 2 * cur + 2;
 
-    // If left child is larger than root
-    if (left < n && arr[left] > arr[largest]) {
+    if(less(left, n) && greater(arr[left], arr[largest])) {
         largest = left;
     }
 
-    // If right child is larger than largest so far
-    if (right < n && arr[right] > arr[largest]) {
+    if(less(right, n) && greater(arr[right], arr[largest])) {
         largest = right;
     }
 
-    // If largest is not root
-    if (largest != i) {
-        std::swap(arr[i], arr[largest]);
-
-        // Recursively heapify the affected sub-tree
+    if(!equal(largest, cur)) {
+        swap_num(arr[cur], arr[largest]);
         heapify(arr, n, largest);
     }
 }
@@ -28,18 +23,12 @@ void heapify(int arr[], int n, int i) {
 void HeapSort::sort(int arr[], int n) {
     auto start = std::chrono::high_resolution_clock::now();
 
-    // implement algorithm here
-    // Build heap (rearrange array)
-    for (int i = n / 2 - 1; i >= 0; i--) {
+    for(int i = n / 2 - 1; greater_equal(i, 0); --i) {
         heapify(arr, n, i);
     }
 
-    // One by one extract an element from heap
-    for (int i = n - 1; i > 0; i--) {
-        // Move current root to end
-        std::swap(arr[0], arr[i]);
-
-        // call max heapify on the reduced heap
+    for(int i = n - 1; greater(i, 0); --i) {
+        swap_num(arr[0], arr[i]);
         heapify(arr, i, 0);
     }
 
