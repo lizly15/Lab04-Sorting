@@ -112,6 +112,17 @@ string get_value(const string& key, const string option_value[][2], int num_opti
     return "";
 }
 
+void print_data(const int* arr, int arr_n, string file_name) {
+    ofstream out(file_name);
+
+    out << arr_n << endl;
+    for(int i = 0; i < arr_n; ++i) {
+        out << arr[i] << ' ';
+    }
+
+    out.close();
+}
+
 void algorithm_mode(Params& params) {
     cout << "ALGORITHM MODE" << endl;
     cout << "Algorithm: " << get_value(params.algo1, SORT_ALGOS, 10) << endl;
@@ -131,17 +142,23 @@ void algorithm_mode(Params& params) {
         sort_algo->reset_compare();
         get_data(arr, params.arr_n, order, params.file_name);
 
-        // if(params.input_order != "-file") {
-        //     if(params.input_order != "-all") {
-        //         print_data(arr, params.arr_n, "input.txt");
-        //     }
-        // }
+        if(params.input_order != "-file") {
+            if(params.input_order != "-all") {
+                print_data(arr, params.arr_n, "input.txt");
+            }
+            else {
+                print_data(arr, params.arr_n, FILE_NAME_ORDER[order][1]);
+            }
+        }
 
         int* tem_arr = nullptr;
         copy_arr(arr, tem_arr, params.arr_n);
         sort_algo->sort(tem_arr, params.arr_n);
 
         show_algo(sort_algo, (params.output_param != "-comp"), (params.output_param != "-time"));
+        if(params.input_order != "-all") {
+            print_data(tem_arr, params.arr_n, "output.txt");
+        }
 
         if(tem_arr != nullptr) {
             delete [] tem_arr;
@@ -180,6 +197,15 @@ void comparison_mode(Params& params) {
         sort_algo_1->reset_compare();
         sort_algo_2->reset_compare();
         get_data(arr, params.arr_n, order, params.file_name);
+
+        if(params.input_order != "-file") {
+            if(params.input_order != "-all") {
+                print_data(arr, params.arr_n, "input.txt");
+            }
+            else {
+                print_data(arr, params.arr_n, FILE_NAME_ORDER[order][1]);
+            }
+        }
 
         int* tem_arr_1 = nullptr;
         copy_arr(arr, tem_arr_1, params.arr_n);

@@ -28,8 +28,14 @@ const string SORT_ALGOS[10][2] = {
 const string INPUT_ORDER[4][2] = {
     {"-rand", "Randomized"},
     {"-sorted", "Sorted"},
-    {"-rev", " Reverse sorted"},
+    {"-rev", "Reverse sorted"},
     {"-nsorted", "Nearly sorted"}
+};
+const string FILE_NAME_ORDER[4][2] = {
+    {"-rand", "input_1.txt"},
+    {"-sorted", "input_3.txt"},
+    {"-rev", "input_4.txt"},
+    {"-nsorted", "input_2.txt"}
 };
 const string OUTPUT_PARAM[3][2] = {
     {"-time", "Running time"},
