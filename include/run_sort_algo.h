@@ -14,6 +14,8 @@ void copy_arr(int* arr, int*& des_arr, int arr_n);
 
 string get_value(const string& key, const string option_value[][2], int num_options);
 
+void print_data(const int* arr, int arr_n, string file_name);
+
 void algorithm_mode(Params& params);
 
 void comparison_mode(Params& params);
