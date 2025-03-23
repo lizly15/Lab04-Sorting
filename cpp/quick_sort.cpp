@@ -12,7 +12,7 @@ int QuickSort::partition(int arr[], int low, int high) {
         }
     }
 
-    swap_num(arr[i + 1], arr[high]);
+    if(less(i + 1, high)) swap_num(arr[i + 1], arr[high]);
 
     return i + 1;
 }
@@ -29,7 +29,7 @@ void QuickSort::quick_sort(int arr[], int low, int high) {
 void QuickSort::sort(int arr[], int n) {
     auto start = std::chrono::high_resolution_clock::now();
 
-    quick_sort(arr, 0, n - 1);
+    // quick_sort(arr, 0, n - 1);
 
     auto end = std::chrono::high_resolution_clock::now();
     runtime = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();

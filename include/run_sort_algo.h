@@ -10,6 +10,10 @@ void get_input_order(const string& input_order, int& low, int& high);
 
 void get_data(int*& arr, int& arr_n, int order, const string& file_name);
 
+void copy_arr(int* arr, int*& des_arr, int arr_n);
+
+string get_value(const string& key, const string option_value[][2], int num_options);
+
 void algorithm_mode(Params& params);
 
 void comparison_mode(Params& params);

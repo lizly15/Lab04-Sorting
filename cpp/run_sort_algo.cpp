@@ -74,7 +74,7 @@ void get_input_order(const string& input_order, int& low, int& high) {
 }
 
 void get_data(int*& arr, int& arr_n, int order, const string& file_name) {
-    if(order == 5) {
+    if(order == 4) {
         ifstream inp(file_name);
 
         if(inp.is_open()) {
@@ -128,7 +128,14 @@ void algorithm_mode(Params& params) {
     get_input_order(params.input_order, order_low, order_high);
 
     for(int order = order_low; order <= order_high; ++order) {
+        sort_algo->reset_compare();
         get_data(arr, params.arr_n, order, params.file_name);
+
+        // if(params.input_order != "-file") {
+        //     if(params.input_order != "-all") {
+        //         print_data(arr, params.arr_n, "input.txt");
+        //     }
+        // }
 
         int* tem_arr = nullptr;
         copy_arr(arr, tem_arr, params.arr_n);
@@ -170,6 +177,8 @@ void comparison_mode(Params& params) {
     get_input_order(params.input_order, order_low, order_high);
 
     for(int order = order_low; order <= order_high; ++order) {
+        sort_algo_1->reset_compare();
+        sort_algo_2->reset_compare();
         get_data(arr, params.arr_n, order, params.file_name);
 
         int* tem_arr_1 = nullptr;

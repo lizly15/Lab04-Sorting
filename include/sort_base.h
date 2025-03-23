@@ -41,6 +41,10 @@ public:
     long long comparisons = 0;
 
     virtual void sort(int arr[], int n) = 0;
+
+    void reset_compare() {
+        comparisons = 0;
+    }
     
     virtual ~SortBase() {}
 };
