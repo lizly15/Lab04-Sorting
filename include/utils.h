@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include <stdexcept>
 #include "../include/sort_base.h"
 using namespace std;
